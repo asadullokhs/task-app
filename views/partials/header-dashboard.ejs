@@ -1,33 +1,42 @@
-<header class="p-3 text-bg-dark">
-  <div class="container">
-    <div
-      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-    >
+<div class="container container-fluid">
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+  >
+    <div class="col-md-3 mb-2 mb-md-0">
       <a
-        href="/"
-        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none fs-4 fw-bold text-primary"
+        href="/dashboard"
+        class="d-inline-flex link-body-emphasis text-decoration-none fs-4 fw-bold text-primary"
       >
-        Task app
+        <img width="80" src="/images/logo.webp" alt="logo" />
       </a>
-
-      <form
-        action="/dashboard/search"
-        method="post"
-        class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
-        role="search"
-      >
-        <input
-          type="search"
-          class="form-control form-control-dark text-bg-dark"
-          placeholder="Search..."
-          aria-label="Search"
-          name="searchTerm"
-        />
-      </form>
-
-      <div class="text-end">
-        <a href="/logout" class="btn btn-outline-light me-2">Logout</a>
-      </div>
     </div>
-  </div>
-</header>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="/logout" class="nav-link px-4">Home</a></li>
+      <li><a href="#" class="nav-link px-2">Features</a></li>
+      <li class="nav-search ps-2">
+        <form
+          action="/dashboard/search"
+          method="post"
+          class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex"
+          role="search"
+        >
+          <input
+            type="search"
+            class="form-control form-control-primary"
+            placeholder="Search..."
+            aria-label="Search"
+            name="searchTerm"
+            required
+          />
+          <button type="submit" class="nav-link">Search</button>
+        </form>
+      </li>
+      <li><a href="/about" class="nav-link mx-0 px-0">About</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      <a href="/logout" class="btn btn-primary me-2">Logout</a>
+    </div>
+  </header>
+</div>
