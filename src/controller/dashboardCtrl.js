@@ -26,6 +26,7 @@ const dashboardCtrl = {
 
       res.render("dashboard/index", {
         userName: req.user.firstName,
+        photo: req.user.profileImage,
         current: page,
         pages: Math.ceil(count / perPage),
         locals,
