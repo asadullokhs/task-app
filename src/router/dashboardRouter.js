@@ -9,5 +9,6 @@ router.get("/dashboard/add", isLogin, dashboardCtrl.addPage);
 router.get("/dashboard/item/:id", isLogin, dashboardCtrl.viewTask);
 router.post("/dashboard/add", isLogin, dashboardCtrl.addTask);
 router.post("/dashboard/update/:id", isLogin, dashboardCtrl.updateTask);
+router.get("/dashboard/delete/:id", isLogin, dashboardCtrl.deleteTask);
 
 module.exports = router;

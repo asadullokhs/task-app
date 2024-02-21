@@ -88,6 +88,16 @@ const dashboardCtrl = {
       console.log(error);
     }
   },
+  // delete
+  deleteTask: async (req, res) => {
+    const { id } = req.params;
+    try {
+      await TaskModel.findByIdAndDelete(id);
+      res.redirect("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 
 module.exports = dashboardCtrl;
