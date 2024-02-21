@@ -10,7 +10,7 @@ const dashboardCtrl = {
     };
 
     let perPage = 6;
-    let page = req.query.page || 1;
+    let page = req.query.page * 1 || 1;
 
     try {
       // tasks
@@ -22,7 +22,9 @@ const dashboardCtrl = {
         .limit(perPage)
         .exec();
 
-      const count = await TaskModel.find({ user: req.user.id }).count();
+      let count = await TaskModel.find({ user: req.user.id });
+
+      count = count.length;
 
       res.render("dashboard/index", {
         userName: req.user.firstName,
@@ -48,6 +50,39 @@ const dashboardCtrl = {
     req.body.user = req.user.id;
     try {
       await TaskModel.create(req.body);
+      res.redirect("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  // view a task
+  viewTask: async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const task = await TaskModel.findById(id);
+      if (task) {
+        res.render("dashboard/viewTask", {
+          taskId: id,
+          task,
+          layout: "../views/layouts/dashboard",
+        });
+      } else {
+        res.send("Something went wrong");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  // update
+  updateTask: async (req, res) => {
+    const { id } = req.params;
+    const { title, body } = req.body;
+    try {
+      await TaskModel.findByIdAndUpdate(
+        { _id: id },
+        { title, body, updatedAt: Date.now() }
+      );
       res.redirect("/dashboard");
     } catch (error) {
       console.log(error);
