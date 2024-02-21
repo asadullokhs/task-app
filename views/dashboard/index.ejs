@@ -8,6 +8,16 @@
     width: 50px;
     height: 50px;
   }
+
+  .not-found {
+    align-items: center;
+  }
+
+  .no-task-img {
+    width: 100%;
+    border-top-left-radius: 50px;
+    border-end-end-radius: 50px;
+  }
 </style>
 <div class="container pb-5 mb-5">
   <div class="row mb-4 align-items-center">
@@ -49,18 +59,16 @@
       </div>
     </div>
     <% }) } else { %>
-    <div class="row">
-      <div class="col-3">
-        <img
-          class="img-fluid no-task-img"
-          src="/images/hero.jpeg"
-          alt="task-image"
-        />
+    <div class="row not-found">
+      <div class="col-6">
+        <h2 class="display-1 fw-bold">Welcome</h2>
+        <h4 class="display-6">Let's start your first task!</h4>
+        <a href="/dashboard/add" class="text-decoration-none fs-5 text-primary"
+          >Create One</a
+        >
       </div>
-      <div class="col mt-md-4">
-        <h2>Welcome</h2>
-        <h4>Let's start your first task!</h4>
-        <a href="/dashboard/add">Create One</a>
+      <div class="col-6">
+        <img class="no-task-img" src="/images/hero.jpeg" alt="task-image" />
       </div>
     </div>
     <% } if(tasks.length > 0){ %>
