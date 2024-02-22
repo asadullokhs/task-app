@@ -3,7 +3,9 @@
     <div class="col">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item">
+            <a href="/dashboard">Dashboard</a>
+          </li>
           <li class="breadcrumb-item active" aria-current="page">
             <%= task.title %>
           </li>
@@ -75,8 +77,8 @@
         id="body"
         cols="30"
         rows="10"
-        required="true"
         placeholder="Enter a body..."
+        required
       >
 <%= task.body %></textarea
       >
