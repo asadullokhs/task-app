@@ -98,6 +98,34 @@ const dashboardCtrl = {
       console.log(error);
     }
   },
+
+  //search
+  seacrhTask: async (req, res) => {
+    try {
+      const { term } = req.body;
+
+      if (!term) {
+        const tasks = await TaskModel.find();
+        return res.render("dashboard/search", {
+          tasks,
+          layout: "../views/layouts/dashboard",
+        });
+      }
+
+      const key = new RegExp(term, "i");
+
+      const result = await TaskModel.find({
+        $or: [{ title: { $regex: key } }, { body: { $regex: key } }],
+      });
+
+      res.render("dashboard/search", {
+        tasks: result,
+        layout: "../views/layouts/dashboard",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 
 module.exports = dashboardCtrl;
