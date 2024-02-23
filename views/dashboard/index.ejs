@@ -18,6 +18,59 @@
     border-top-left-radius: 50px;
     border-end-end-radius: 50px;
   }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+  }
+
+  .card {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: linear-gradient(45deg, #fff, #1e90ff);
+    opacity: 0.8;
+    transform: skewY(-5deg);
+    z-index: -1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  h1,
+  p {
+    margin: 0;
+    color: #333;
+  }
 </style>
 <div class="container pb-5 mb-5">
   <div class="row mb-4 align-items-center">
@@ -48,14 +101,16 @@
   <div class="row">
     <% if(tasks.length > 0){ tasks.forEach(task => { %>
     <div class="col-12 col-sm-3 col-md-4 col-lg-3 mb-4">
-      <div class="card border-primary" style="min-height: 210px">
-        <a
-          href="/dashboard/item/<%= task._id  %>"
-          class="card-body text-decoration-none"
-        >
-          <h5 class="card-title"><%= task.title %></h5>
-          <p class="card-text text-truncate"><%= task.body %></p>
-        </a>
+      <div class="card">
+        <div class="card-content">
+          <a
+            href="/dashboard/item/<%= task._id  %>"
+            class="card-body text-decoration-none"
+          >
+            <h1 class="text-truncate"><%= task.title %></h1>
+            <p class="text-truncate"><%= task.body %></p>
+          </a>
+        </div>
       </div>
     </div>
     <% }) } else { %>
