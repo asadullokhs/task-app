@@ -1,3 +1,24 @@
+<style>
+  @media only screen and (max-width: 768px) {
+    header {
+      width: 100%;
+    }
+    .home,
+    .feat {
+      display: none;
+    }
+
+    .hom {
+      margin-left: 50px;
+    }
+
+    .logout {
+      position: absolute;
+      top: 16px;
+      left: 140px;
+    }
+  }
+</style>
 <div class="container container-fluid">
   <header
     class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
@@ -5,7 +26,7 @@
     <div class="col-md-3 mb-2 mb-md-0">
       <a
         href="/dashboard"
-        class="d-inline-flex link-body-emphasis text-decoration-none fs-4 fw-bold text-primary"
+        class="d-inline-flex hom link-body-emphasis text-decoration-none fs-4 fw-bold text-primary"
       >
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
         <lord-icon
@@ -19,8 +40,8 @@
     </div>
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a href="/logout" class="nav-link px-4">Home</a></li>
-      <li><a href="#" class="nav-link px-2">Features</a></li>
+      <li><a href="/logout" class="home nav-link px-4">Home</a></li>
+      <li><a href="#" class="feat nav-link px-2">Features</a></li>
       <li class="nav-search ps-2">
         <form
           action="/dashboard/search"
@@ -42,7 +63,7 @@
       <li><a href="/about" class="nav-link mx-0 px-0">About</a></li>
     </ul>
 
-    <div class="col-md-3 text-end">
+    <div class="col-md-3 logout text-end">
       <a href="/logout" class="me-2"
         ><script src="https://cdn.lordicon.com/lordicon.js"></script>
         <lord-icon
