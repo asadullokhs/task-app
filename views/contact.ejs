@@ -1,1 +1,154 @@
-<h1>Salomat</h1>
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .heading-top,
+  span {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 40px;
+    text-shadow: -3px 3px 8px rgba(28, 7, 142, 0.69);
+    font-weight: 900;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .list {
+    list-style-type: none;
+    margin: 0 auto;
+    max-width: 300px;
+    text-align: center;
+    padding: 30px 50px;
+    box-shadow: 0 0 20px 5px rgba(28, 7, 142, 0.69) inset;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .list li {
+    margin-bottom: 30px;
+    display: block;
+  }
+
+  .content {
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 0px #000000;
+    padding: 40px;
+  }
+
+  .company-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .contact {
+    padding: 20px 0;
+  }
+
+  .contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact form label {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+  }
+
+  .contact form input,
+  textarea,
+  button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid darkblue;
+  }
+
+  button {
+    background-color: #fff0ff;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    padding: 10px 30px;
+    color: #1e90ff;
+    border: none;
+    font-weight: 800;
+    border-radius: 10px;
+  }
+
+  button:hover {
+    background-color: #1e90ff;
+    color: #fff0ff;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    font-size: 40px;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+  }
+</style>
+
+<div class="container">
+  <h1 class="heading-top"><span>Contact</span>me</h1>
+  <div class="content">
+    <div class="company-info">
+      <h3>Webstar</h3>
+      <ul class="list">
+        <li>
+          <h3>Sagdullaev Asadullokh</h3>
+        </li>
+        <li>
+          <a href="tel:+998946354046">+998946354046</a>
+        </li>
+        <li>
+          <a href="mailto:uzbdevit@gmail.com">uzbdevit@gmail.com</a>
+        </li>
+      </ul>
+    </div>
+    <div class="contact">
+      <h3>Email us</h3>
+
+      <form action="/contact/send" method="post">
+        <div>
+          <label for="">Name <input type="text" name="name" required /></label>
+        </div>
+        <div>
+          <label for=""
+            >Company <input type="text" name="company" required
+          /></label>
+        </div>
+        <div>
+          <label for=""
+            >Email address <input type="email" name="email" required
+          /></label>
+        </div>
+        <div>
+          <label for="">Phone <input type="tel" name="phone" required /></label>
+        </div>
+        <div>
+          <label for=""
+            >Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
