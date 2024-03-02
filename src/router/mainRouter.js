@@ -4,6 +4,5 @@ const mainCtrl = require("../controller/mainCtrl");
 
 router.get("/", mainCtrl.home);
 router.get("/about", mainCtrl.about);
-// router.all("*", mainCtrl.error);
 
 module.exports = router;

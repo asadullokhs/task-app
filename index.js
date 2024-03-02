@@ -12,6 +12,7 @@ dotenv.config();
 const mainRouter = require("./src/router/mainRouter");
 const authRouter = require("./src/router/authRouter");
 const dashboardRouter = require("./src/router/dashboardRouter");
+const mainCtrl = require("./src/controller/mainCtrl");
 
 const app = express();
 const PORT = process.env.PORT || 4002;
@@ -42,6 +43,8 @@ app.set("view engine", "ejs");
 app.use("/", mainRouter);
 app.use("/", authRouter);
 app.use("/", dashboardRouter);
+
+app.all("*", mainCtrl.error);
 
 const start = async () => {
   try {
