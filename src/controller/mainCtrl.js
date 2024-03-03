@@ -33,6 +33,7 @@ const main = {
   },
   sendMail: async (req, res) => {
     const { name, company, email, phone, message } = req.body;
+    const nodemailer = require("nodemailer");
     try {
       const config = {
         service: "gmail",
@@ -64,7 +65,7 @@ const main = {
       };
 
       transporter.sendMail(msg);
-      res.render("status");
+      res.redirect("/");
     } catch (error) {
       console.log(error);
     }
